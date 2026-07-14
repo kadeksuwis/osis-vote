@@ -14,5 +14,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@osis.sch.id',
             'password' => bcrypt('password123'), // ganti nanti setelah login
         ]);
+        $this->call([
+            SettingSeeder::class,
+        ]);
     }
 }
