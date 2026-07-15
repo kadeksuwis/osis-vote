@@ -19,6 +19,10 @@
                     <x-nav-link :href="route('admin.candidates.index')" :active="request()->routeIs('admin.candidates.*')">
                         {{ __('Kandidat') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('admin.settings.edit')" :active="request()->routeIs('admin.settings.*')">
+                        {{ __('Pengaturan') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -85,6 +89,10 @@
 
             <x-responsive-nav-link :href="route('admin.candidates.index')" :active="request()->routeIs('admin.candidates.*')">
                 {{ __('Kandidat') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('admin.settings.edit')" :active="request()->routeIs('admin.settings.*')">
+                {{ __('Pengaturan') }}
             </x-responsive-nav-link>
         </div>
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\CandidateController;
+use App\Http\Controllers\Admin\SettingController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,7 +21,10 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('candidates', CandidateController::class);
+
+        Route::get('settings', [SettingController::class, 'edit'])->name('settings.edit');
+        Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
     });
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
