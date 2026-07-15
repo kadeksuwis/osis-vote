@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pilih Kandidat</title>
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-50 min-h-screen py-10">
+
+<body class="bg-gray-50 min-h-screen py-6 px-2">
     <div class="max-w-4xl mx-auto px-4">
         <h1 class="text-2xl font-bold text-center text-gray-800 mb-2">
             Halo, {{ $voter->nama }}
@@ -21,16 +24,17 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 @foreach ($candidates as $candidate)
                     <div onclick="pilih({{ $candidate->id }}, this)"
-                         class="candidate-card cursor-pointer bg-white shadow rounded-lg p-6 border-2 border-transparent hover:border-indigo-400 transition">
+                        class="candidate-card cursor-pointer bg-white shadow rounded-lg p-6 border-2 border-transparent hover:border-indigo-400 transition">
                         <div class="text-center mb-4">
-                            <span class="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-semibold">
+                            <span
+                                class="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-semibold">
                                 No. Urut {{ $candidate->no_urut }}
                             </span>
                         </div>
 
                         @if ($candidate->foto)
                             <img src="{{ Storage::url($candidate->foto) }}"
-                                 class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                                class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
                         @endif
 
                         <h3 class="text-lg font-bold text-center">{{ $candidate->nama_ketua }}</h3>
@@ -48,7 +52,7 @@
 
             <div class="text-center mt-8">
                 <button type="submit" id="submitBtn" disabled
-                        class="bg-gray-300 text-white px-8 py-3 rounded font-semibold cursor-not-allowed">
+                    class="bg-gray-300 text-white px-8 py-3 rounded font-semibold cursor-not-allowed">
                     Pilih kandidat terlebih dahulu
                 </button>
             </div>
@@ -80,4 +84,5 @@
         });
     </script>
 </body>
+
 </html>
