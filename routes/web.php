@@ -7,12 +7,14 @@ use App\Http\Controllers\Admin\CandidateController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\VoterController;
 use App\Http\Controllers\VoteController;
+use App\Http\Controllers\ResultController;
 
 Route::get('/', [VoteController::class, 'showLoginForm'])->name('vote.login');
 Route::post('/vote/login', [VoteController::class, 'login'])->name('vote.login.submit');
 Route::get('/vote/choose', [VoteController::class, 'choose'])->name('vote.choose');
 Route::post('/vote/submit', [VoteController::class, 'submit'])->name('vote.submit');
 Route::get('/vote/thanks', [VoteController::class, 'thanks'])->name('vote.thanks');
+Route::get('/hasil', [ResultController::class, 'publicResult'])->name('vote.result');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,6 +38,8 @@ Route::middleware('auth')->group(function () {
         Route::get('voters', [VoterController::class, 'index'])->name('voters.index');
         Route::post('voters/import', [VoterController::class, 'import'])->name('voters.import');
         Route::delete('voters/{voter}', [VoterController::class, 'destroy'])->name('voters.destroy');
+
+        Route::get('result', [ResultController::class, 'adminResult'])->name('result');
     });
 });
 

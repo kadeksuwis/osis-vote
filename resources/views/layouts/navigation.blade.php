@@ -27,6 +27,10 @@
                     <x-nav-link :href="route('admin.voters.index')" :active="request()->routeIs('admin.voters.*')">
                         {{ __('Pemilih') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('admin.result')" :active="request()->routeIs('admin.result')">
+                        {{ __('Hasil') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -100,6 +104,10 @@
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('admin.voters.index')" :active="request()->routeIs('admin.voters.*')">
+                {{ __('Pemilih') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('admin.result')" :active="request()->routeIs('admin.result.*')">
                 {{ __('Pemilih') }}
             </x-responsive-nav-link>
 
