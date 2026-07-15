@@ -23,6 +23,10 @@
                     <x-nav-link :href="route('admin.settings.edit')" :active="request()->routeIs('admin.settings.*')">
                         {{ __('Pengaturan') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('admin.voters.index')" :active="request()->routeIs('admin.voters.*')">
+                        {{ __('Pemilih') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -95,9 +99,10 @@
                 {{ __('Pengaturan') }}
             </x-responsive-nav-link>
 
-            <x-nav-link :href="route('admin.voters.index')" :active="request()->routeIs('admin.voters.*')">
+            <x-responsive-nav-link :href="route('admin.voters.index')" :active="request()->routeIs('admin.voters.*')">
                 {{ __('Pemilih') }}
-            </x-nav-link>
+            </x-responsive-nav-link>
+
         </div>
 
         <!-- Responsive Settings Options -->
