@@ -108,7 +108,7 @@
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('admin.result')" :active="request()->routeIs('admin.result.*')">
-                {{ __('Pemilih') }}
+                {{ __('Hasil') }}
             </x-responsive-nav-link>
 
         </div>

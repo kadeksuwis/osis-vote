@@ -27,7 +27,7 @@ class ResultController extends Controller
         return $this->buildResultView($setting, true);
     }
 
-    private function buildResultView($setting, $isAdmin = false)
+    private function buildResultView(?Setting $setting, $isAdmin = false)
     {
         $candidates = Candidate::withCount('votes')->orderBy('no_urut')->get();
         $totalVotes = $candidates->sum('votes_count');
