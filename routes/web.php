@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\CandidateController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\VoterController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,6 +25,14 @@ Route::middleware('auth')->group(function () {
 
         Route::get('settings', [SettingController::class, 'edit'])->name('settings.edit');
         Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
+
+        Route::resource('candidates', CandidateController::class);
+        Route::get('settings', [SettingController::class, 'edit'])->name('settings.edit');
+        Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
+
+        Route::get('voters', [VoterController::class, 'index'])->name('voters.index');
+        Route::post('voters/import', [VoterController::class, 'import'])->name('voters.import');
+        Route::delete('voters/{voter}', [VoterController::class, 'destroy'])->name('voters.destroy');
     });
 });
 
