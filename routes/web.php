@@ -6,10 +6,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CandidateController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\VoterController;
+use App\Http\Controllers\VoteController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [VoteController::class, 'showLoginForm'])->name('vote.login');
+Route::post('/vote/login', [VoteController::class, 'login'])->name('vote.login.submit');
+Route::get('/vote/choose', [VoteController::class, 'choose'])->name('vote.choose');
+Route::post('/vote/submit', [VoteController::class, 'submit'])->name('vote.submit');
+Route::get('/vote/thanks', [VoteController::class, 'thanks'])->name('vote.thanks');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
